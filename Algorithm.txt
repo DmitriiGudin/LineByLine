@@ -1,0 +1,57 @@
+Required program files: 
+    hbrad2.run (compiled hbrad2.for)
+    ablines.dat
+
+Spectra:
+    A list of *.fits files having names S00000001.fits, S00000002.fits, ...
+
+
+----
+----
+
+
+Instructions for obtaining radial velocities:
+
+
+0. Start IRAF.
+    source activate iraf27
+    [Go to the IRAF folder.]
+    cl
+
+
+1. Get the list of spectral files:
+    ls -1 S*.fits > S.list
+
+
+2. Prepare the list of resampled spectral files:
+    cp S.list R.list
+    [Find and replace all 'S' with 'R' in a text editor (case-sensitive!).]
+
+
+3. Generate the resampled spectral files.
+    noao
+    onedspec
+    dispcor input=@S.list output=@R.list w1=3700 w2=5000 dw=0.5
+
+
+4. Prepare the list of the wavelength-flux text files.
+    cp R.list F.list
+    [Find and replace all 'fits' with 'dad' in a text editor.]
+
+
+5. Generate the wavelength-flux text files.
+    ctio
+    lambda input=@R.list start=CRVAL1 delta=CD1_1 number=no > @F.list
+
+
+6. Generate the list of the dad-files (without the 'dad' part).
+    cp F.list dad.list
+    [Find and remove all '.dad' in a text editor.]
+
+
+7. Run the routine.
+    ./hbrad2.run
+    
+
+
+

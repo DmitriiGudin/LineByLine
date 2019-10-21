@@ -1,0 +1,9 @@
+# RVCORRECT: Observatory parameters for European Southern Observatory, NTT, La Silla
+#	latitude = -29:15:18.440
+#	longitude = 70:43:54.272
+#	altitude = 2375
+##   HJD          VOBS   VHELIO     VLSR   VDIURNAL   VLUNAR  VANNUAL   VSOLAR
+2455851.68728     0.00   -12.63   -23.14     -0.027    0.005  -12.607  -10.515
+2455851.76091     0.00    -5.65   -16.66     -0.132    0.009   -5.529  -11.014
+2455851.55492     0.00   -21.80   -24.70      0.027    0.009  -21.834   -2.904
+2455851.62777     0.00   -18.74   -18.41     -0.058    0.012  -18.693    0.328
